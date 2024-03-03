@@ -1,4 +1,4 @@
-dy(function () {
+document.ready(function () {
 	const amenities = {};
 	$("li input[type=checkbox]").change(function () {
 		if (this.checked) {
@@ -19,7 +19,6 @@ dy(function () {
 	});
 
 	// fetch data about places
-	//fetch
 	$.post({
 		url: `${HOST}/api/v1/places_search`,
 		data: JSON.stringify({}),
@@ -54,5 +53,8 @@ dy(function () {
 		},
 		dataType: "json",
 	});
-});
 
+	// search places
+	$(".filters button").bind("click", searchPlace);
+	searchPlace();
+});
